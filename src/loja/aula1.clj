@@ -54,4 +54,19 @@
         (meu-map funcao (rest sequencia))))))
 
 (meu-map println ["arr1", false, "arr3"])
+;(meu-map println (range 1000000))
+
+
+(println "\n meu mapa com parada no nil com ajuste \n")
+
+; tail recursion
+(defn meu-map
+  [funcao sequencia]
+  (let [primeiro (first sequencia)]
+    (if (not (nil? primeiro))
+      (do
+        (funcao primeiro)
+        (recur funcao (rest sequencia))))))
+
+(meu-map println (range 5000))
 
